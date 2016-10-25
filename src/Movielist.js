@@ -9,10 +9,15 @@ let ulStyle = {
 class Movielist extends Component {
 
   render() {
-  	let movies = this.props.movies;
+    let seenHandler = this.props.seenHandler;
+
+    let movies = this.props.movies;
     let movieItems = movies.map(function(movie) {
-      return <MovieListItem key={`movie-${movie.id}`} 
-        posterPath={movie.poster_path} />; 
+      return <MovieListItem key={`movie-${movie.id}`}
+        posterPath={movie.poster_path}
+        movieId={movie.id}
+        seenHandler={seenHandler}
+        seen={movie.seen} />;
     });
 
   	return (
