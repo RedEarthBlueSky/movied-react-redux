@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Movielist from './Movielist';
 
 import AppBar from 'material-ui/AppBar';
 
@@ -19,15 +20,37 @@ const muiTheme = getMuiTheme({
   },
 });
 
+
 class App extends Component {
+  
+  constructor() {
+    super();
+    this.state = {
+      movies: []
+    };
+
+    this.getMoviesFromApiAsync();
+  }
+
+
+  getMoviesFromApiAsync() {
+    return fetch('https://movied.herokuapp.com/discover')
+      .then((response) => response.json())
+      .then(movies => this.setState({ movies }))
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
   render () {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div className="App">
           <AppBar title="Movied"/>
-          <div style={{padding:24}}>
-            {/* … Your code here … */}
-          </div>
+            <div style={{padding:24}}>
+              <Movielist movies={this.state.movies}></Movielist>
+                
+            </div>
         </div>
       </MuiThemeProvider>
     );
