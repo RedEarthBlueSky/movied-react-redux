@@ -1,5 +1,5 @@
 {
-  "name": "movied-react-only",
+  "name": "movied-react-redux",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
@@ -20,6 +20,7 @@
     "material-ui": "^0.16.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
+    "react-scripts": "^0.7.0",
     "react-tap-event-plugin": "^1.0.0"
   },
   "scripts": {
