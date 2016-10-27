@@ -9,6 +9,8 @@ let ulStyle = {
 class Movielist extends Component {
 
   render() {
+
+    //  Reducer***
     let seenHandler = this.props.seenHandler;
 
     let movies = this.props.movies;
@@ -19,6 +21,7 @@ class Movielist extends Component {
         seenHandler={seenHandler}
         seen={movie.seen} />;
     });
+    //  Reducer***  END
 
   	return (
   		<ul style={ulStyle}>
